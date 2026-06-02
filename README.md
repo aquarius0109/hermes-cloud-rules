@@ -31,4 +31,3 @@ git clone https://cnb:<your-token>@cnb.cool/cello-2026/hermes_workspace.git
 ```
 
 用户名固定填 `cnb`，密码填令牌。
-# 测试推送 Tue Jun  2 10:57:21 CST 2026
