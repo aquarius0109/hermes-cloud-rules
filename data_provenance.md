@@ -29,13 +29,16 @@ D:\WSL\science work\          (本地Windows副本)
 | cluster3 | 集群3(qdeshell) | qdeshell.hpccube.com | 65032 | 32核, 容器环境 |
 
 ## 集群目录命名规范
+## 集群目录命名规范
+### 总体结构
 
 ```
 /work/home/aquarius0109/
 ├── papers/
-│   ├── paper1_conductive_K-struvite_DFT/
-│   │   ├── DFT/
-│   │   │   └── {体系}_{方法}_{参数}_{日期}/
+│   ├── paper1_conductive_K-struvite_DFT/    # 论文目录（与云盘一致）
+│   │   ├── DFT/                              # 计算类型
+│   │   │   ├── Kstruvite_bulk_relax_20260623/
+│   │   │   └── Kstruvite_dos_PBE_20260624/
 │   │   ├── MD/
 │   │   └── NEB/
 │   └── ...
@@ -45,8 +48,82 @@ D:\WSL\science work\          (本地Windows副本)
 └── scratch/
 ```
 
-## 溯源记录格式
+### DFT计算目录命名
 
+```
+{体系}_{计算类型}_{方法}_{参数}_{日期}/
+```
+
+**示例：**
+```
+Kstruvite_bulk_relax_20260623/        # 体相结构优化
+Kstruvite_dos_PBE_20260624/           # 态密度计算
+Kstruvite_band_PBE_soc_20260625/      # 能带+SOC
+TM_doped_Kstruvite_V_20260626/        # V掺杂
+MgKPO4_surface_slab_20260627/         # 表面slab
+Mg_X_binding_energy_20260628/          # 结合能计算
+```
+
+### MD计算目录命名
+
+```
+{体系}_{系综}_{温度}K_{压力}bar_{步数}steps_{日期}/
+```
+
+**示例：**
+```
+Kstruvite_NVT_300K_1bar_100000steps_20260623/
+Kstruvite_NPT_300K_1bar_500000steps_20260624/
+Kstruvite_polycrystal_8grain_NPT_20260625/
+Co_doped_Kstruvite_NVT_300K_20260626/
+```
+
+### NEB计算目录命名
+
+```
+{体系}_NEB_{路径描述}_{图像数}img_{方法}_{日期}/
+```
+
+**示例：**
+```
+Kstruvite_NEB_K_migration_4img_CG_20260623/
+Mg_slab_NEB_Sr_exchange_4img_20260624/
+```
+
+### 输入文件命名
+
+```
+pw_scf.in                 # QE SCF输入
+pw_vcrelax.in             # QE vc-relax输入
+pw_dos.in                 # QE DOS输入
+pw_neb_img{NN}.in         # QE NEB图像输入
+cp2k_scf.inp              # CP2K SCF输入
+cp2k_neb.inp              # CP2K NEB输入
+in.lammps                 # LAMMPS输入
+submit.sh                 # 提交脚本
+```
+
+### 输出文件命名
+
+```
+pw.out                    # QE主输出
+pw_scf.out                # QE SCF输出
+pw_vcrelax.out            # QE vc-relax输出
+CRISIS*.out               # CP2K输出
+log.lammps                # LAMMPS输出
+trajectory.dump           # LAMMPS轨迹
+```
+
+## 命名规则
+
+1. **禁止空格**：用下划线 `_` 分隔
+2. **禁止中文**：只用英文和数字
+3. **日期格式**：`YYYYMMDD`（如 `20260623`）
+4. **大小写**：体系名首字母大写，方法小写
+5. **层级清晰**：论文/计算类型/具体任务 三级目录
+
+## 溯源记录格式
+```
 ```
 | 编号 | 计算任务 | 集群 | 分区 | 作业ID | 日期 | 状态 | 本地路径 | 云盘路径 | 集群路径 | 备注 |
 ```
