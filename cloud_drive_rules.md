@@ -1,4 +1,4 @@
-# 双Hermes云盘协作规范 v1.2
+# 双Hermes云盘协作规范 v1.3
 > 最后更新：2026-06-24
 > 本地路径：D:\WSL\science work\
 > 此文件同时存放在：GitHub仓库 + 阿里云盘根目录
@@ -117,6 +117,12 @@ papers/paper1_conductive_K-struvite_DFT/calculation/DFT/Kstruvite_relax/ → 赔
 - 本地修改 → 存到 `exchange/from_local/` → 通知对方
 - 云端修改 → 存到 `exchange/from_cloud/` → 通知对方
 - 冲突：后操作方覆盖，但先备份
+
+### 论文正文同步
+- 修改后更新 `VERSION.md` 和 `CHANGELOG.md`
+- 上传到云盘 `manuscript/` 目录
+- Git push 到 GitHub/cnb.cool
+- 详见 `MANUSCRIPT_SYNC.md`
 
 ### 大文件
 - > 100MB：先压缩
