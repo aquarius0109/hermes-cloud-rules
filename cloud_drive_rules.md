@@ -1,5 +1,5 @@
-# 双Hermes云盘协作规范 v1.0
-> 最后更新：2026-06-23
+# 双Hermes云盘协作规范 v1.1
+> 最后更新：2026-06-24
 > 此文件同时存放在：GitHub仓库 + 阿里云盘根目录
 
 ## 架构
@@ -19,9 +19,9 @@ GitHub（规则/脚本/配置）              阿里云盘（数据/文件）
 ## 云盘统一目录结构
 
 ```
-hermes_cloud/
+papers/
 ├── papers/                               # 按论文组织
-│   ├── paper1/
+│   ├── paper1_conductive_K-struvite_DFT/
 │   │   ├── manuscript/                   # 稿件（md/docx/pdf）
 │   │   ├── figures/                      # 图片
 │   │   ├── data/                         # 实验数据
@@ -31,12 +31,12 @@ hermes_cloud/
 │   │   │   ├── MD/                       #   LAMMPS
 │   │   │   └── NEB/                      #   过渡态
 │   │   └── backup/                       # 版本备份
-│   ├── paper2/
+│   ├── paper2_piezoelectric_K-struvite_d-electron/
 │   │   └── ...（同上）
-│   ├── paper3/
-│   ├── paper4/
-│   ├── paper5/
-│   ├── paper_MPC阴离子调控/
+│   ├── paper3_K-struvite_polycrystal_MD/
+│   ├── paper4_MKPC_hydration_MgP_ratio/
+│   ├── paper5_BO_MPC_electrochemical/
+│   ├── paper6_MPC_anion_regulation/
 │   └── ...（新论文继续添加）
 ├── literature/                           # 文献PDF
 ├── calculation_shared/                   # 跨论文共享资源
@@ -78,19 +78,19 @@ hermes-cloud-rules/                      # GitHub仓库
 ```
 {论文编号}_{文件类型}_{版本}.{ext}
 示例：paper1_manuscript_v3.docx
-      paper_MPC_fig11_supersaturation.png
+      paper6_MPC_fig11_supersaturation.png
 ```
 
 ### 计算文件（在论文目录下）
 ```
 {体系}_{计算类型}_{参数}_{日期}/
 示例：papers/paper1/calculation/DFT/Kstruvite_PBE_20260623/
-      papers/paper_MPC阴离子调控/calculation/NEB/Mg_slab_CG_4img_20260623/
+      papers/paper6_MPC_anion_regulation/calculation/NEB/Mg_slab_CG_4img_20260623/
 ```
 
 ### 共享资源
 ```
-papers/paper1/calculation/DFT/Kstruvite_relax/ → 赔势引用 calculation_shared/pseudopotentials/
+papers/paper1_conductive_K-struvite_DFT/calculation/DFT/Kstruvite_relax/ → 赔势引用 calculation_shared/pseudopotentials/
 ```
 
 ## 管理规则
@@ -122,11 +122,11 @@ papers/paper1/calculation/DFT/Kstruvite_relax/ → 赔势引用 calculation_shar
 
 | D盘位置 | 云盘目标 | 状态 |
 |----------|----------|------|
-| cloud_disk_data/paper1/ | papers/paper1/ | ⏳ |
-| cloud_disk_data/paper2/ | papers/paper2/ | ⏳ |
-| cloud_disk_data/paper3/ | papers/paper3/ | ⏳ |
-| cloud_disk_data/paper4/ | papers/paper4/ | ⏳ |
-| cloud_disk_data/paper5/ | papers/paper5/ | ⏳ |
+| cloud_disk_data/paper1/ | papers/paper1_conductive_K-struvite_DFT/ | ⏳ |
+| cloud_disk_data/paper2/ | papers/paper2_piezoelectric_K-struvite_d-electron/ | ⏳ |
+| cloud_disk_data/paper3/ | papers/paper3_K-struvite_polycrystal_MD/ | ⏳ |
+| cloud_disk_data/paper4/ | papers/paper4_MKPC_hydration_MgP_ratio/ | ⏳ |
+| cloud_disk_data/paper5/ | papers/paper5_BO_MPC_electrochemical/ | ⏳ |
 | cloud_disk_data/literature/ | literature/ | ⏳ |
 | cloud_disk_data/pseudopotentials/ | calculation_shared/pseudopotentials/ | ⏳ |
 | cloud_disk_data/neb_package/ | calculation_shared/ (通用NEB脚本) | ⏳ |

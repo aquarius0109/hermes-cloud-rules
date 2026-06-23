@@ -54,7 +54,7 @@ sudo firewall-cmd --reload
 ```
 /
 ├── papers/
-│   ├── paper1/
+│   ├── paper1_conductive_K-struvite_DFT/
 │   │   ├── manuscript/
 │   │   ├── figures/
 │   │   ├── data/
@@ -63,11 +63,11 @@ sudo firewall-cmd --reload
 │   │   │   ├── MD/
 │   │   │   └── NEB/
 │   │   └── backup/
-│   ├── paper2/（同上）
-│   ├── paper3/（同上）
-│   ├── paper4/（同上）
-│   ├── paper5/（同上）
-│   └── paper_MPC阴离子调控/（同上）
+│   ├── paper2_piezoelectric_K-struvite_d-electron/（同上）
+│   ├── paper3_K-struvite_polycrystal_MD/（同上）
+│   ├── paper4_MKPC_hydration_MgP_ratio/（同上）
+│   ├── paper5_BO_MPC_electrochemical/（同上）
+│   └── paper6_MPC_anion_regulation/（同上）
 ├── literature/
 ├── calculation_shared/
 │   ├── pseudopotentials/
