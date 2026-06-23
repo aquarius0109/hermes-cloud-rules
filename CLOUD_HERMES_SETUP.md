@@ -1,6 +1,13 @@
 # 云Hermes操作指南
 > 拉取此仓库后执行
 
+## 目录结构对应关系
+
+```
+阿里云盘 (云端) = D:\WSL\science work\ (本地Windows) = ~/cloud_disk (WSL挂载)
+GitHub/cnb.cool (规则仓库)
+```
+
 ## 第一步：拉取协作规则
 
 ```bash
@@ -88,10 +95,29 @@ sudo firewall-cmd --reload
 
 ## 第五步：同步已有文件
 
-把D盘已有的论文数据上传到对应目录：
-- paper1~paper5 → papers/paper1~paper5/
+本地Hermes已完成文件整理，目录结构如下：
+
+```
+D:\WSL\science work\
+├── papers/
+│   ├── paper1_conductive_K-struvite_DFT/
+│   ├── paper2_piezoelectric_K-struvite_d-electron/
+│   ├── paper3_K-struvite_polycrystal_MD/
+│   ├── paper4_MKPC_hydration_MgP_ratio/
+│   ├── paper5_BO_MPC_electrochemical/
+│   └── paper6_MPC_anion_regulation/
+├── literature/
+├── calculation_shared/
+│   ├── pseudopotentials/
+│   └── neb_package/
+├── hpc/
+├── tools/
+└── exchange/
+```
+
+云Hermes需要确保阿里云盘目录与本地一致：
 - 文献 → literature/
-- 赝势文件 → calculation_shared/pseudopotentials/
+- 赔势文件 → calculation_shared/pseudopotentials/
 
 ## 第六步：更新数据溯源表
 

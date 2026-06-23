@@ -1,24 +1,28 @@
-# 双Hermes云盘协作规范 v1.1
+# 双Hermes云盘协作规范 v1.2
 > 最后更新：2026-06-24
+> 本地路径：D:\WSL\science work\
 > 此文件同时存放在：GitHub仓库 + 阿里云盘根目录
 
 ## 架构
 
 ```
-GitHub（规则/脚本/配置）              阿里云盘（数据/文件）
+GitHub/cnb.cool（规则/脚本/配置）       阿里云盘（数据/文件）
   │                                    │
   ├─ cloud_drive_rules.md             ├─ hermes_cloud/
   ├─ scripts/                         │   ├─ papers/
   └─ README.md                        │   ├─ literature/
                                       │   ├─ calculation_shared/
-                                      │   └─ ...
+                                      │   └── ...
 云Hermes (ECS)                        本地Hermes (WSL)
-  └─ alist WebDAV → 挂载云盘          └─ rclone mount → 挂载云盘
+  └─ aligo → 直连阿里云盘              ├─ aligo → 直连阿里云盘
+                                       └─ D:\WSL\science work\ → 本地副本
 ```
 
 ## 云盘统一目录结构
 
 ```
+D:\WSL\science work\ (本地) = 阿里云盘 (云端) = GitHub/cnb.cool (规则)
+│
 papers/
 ├── papers/                               # 按论文组织
 │   ├── paper1_conductive_K-struvite_DFT/
@@ -120,16 +124,16 @@ papers/paper1_conductive_K-struvite_DFT/calculation/DFT/Kstruvite_relax/ → 赔
 
 ## 本地已有文件同步到云盘
 
-| D盘位置 | 云盘目标 | 状态 |
+| 本地位置 | 云盘目标 | 状态 |
 |----------|----------|------|
-| cloud_disk_data/paper1/ | papers/paper1_conductive_K-struvite_DFT/ | ⏳ |
-| cloud_disk_data/paper2/ | papers/paper2_piezoelectric_K-struvite_d-electron/ | ⏳ |
-| cloud_disk_data/paper3/ | papers/paper3_K-struvite_polycrystal_MD/ | ⏳ |
-| cloud_disk_data/paper4/ | papers/paper4_MKPC_hydration_MgP_ratio/ | ⏳ |
-| cloud_disk_data/paper5/ | papers/paper5_BO_MPC_electrochemical/ | ⏳ |
-| cloud_disk_data/literature/ | literature/ | ⏳ |
-| cloud_disk_data/pseudopotentials/ | calculation_shared/pseudopotentials/ | ⏳ |
-| cloud_disk_data/neb_package/ | calculation_shared/ (通用NEB脚本) | ⏳ |
+| D:\WSL\science work\papers\paper1_* | papers/paper1_*/ | ✅ |
+| D:\WSL\science work\papers\paper2_* | papers/paper2_*/ | ✅ |
+| D:\WSL\science work\papers\paper3_* | papers/paper3_*/ | ✅ |
+| D:\WSL\science work\papers\paper4_* | papers/paper4_*/ | ✅ |
+| D:\WSL\science work\papers\paper5_* | papers/paper5_*/ | ✅ |
+| D:\WSL\science work\papers\paper6_* | papers/paper6_*/ | ✅ |
+| D:\WSL\science work\literature\ | literature/ | ✅ |
+| D:\WSL\science work\calculation_shared\ | calculation_shared/ | ✅ |
 
 ## ECS alist安装（云Hermes执行）
 
