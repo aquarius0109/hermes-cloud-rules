@@ -27,6 +27,28 @@ D:\WSL\science work\          (本地Windows副本)
 | cluster1 | 集群1(wheshell) | cancon.hpccube.com | 65023 | 32核, QE6.8 |
 | cluster2 | 集群2(eshell) | eshell111.hpccube.com | 65082 | DCU加速 |
 | cluster3 | 集群3(qdeshell) | qdeshell.hpccube.com | 65032 | 32核, 容器环境 |
+| cluster5 | 集群5(昆山) | cancon.hpccube.com | 65023 | DCU(PyTorch), Singularity容器 |
+
+## 云盘同步状态
+
+| 项目 | 状态 | 说明 |
+|------|:----:|------|
+| 本地Hermes (WSL) | ✅ | 仓库已克隆、规则已同步 |
+| 阿里云盘 | ✅ | 目录已建、文件已上传（papers/literature/tools/hpc） |
+| GitHub | ✅ | 已推送 |
+| cnb.cool | ✅ | 已推送 |
+| 云Hermes (ECS) | ✅ | 目录已重命名、文件已同步 |
+
+## 阿里云盘目录变更记录
+
+| 日期 | 操作 | 说明 |
+|------|------|------|
+| 2026-06-24 | 重命名 | paper1_conductive_K-struvite_DFT → paper1 |
+| 2026-06-24 | 重命名 | paper2_piezoelectric_K-struvite_d-electron → paper2 |
+| 2026-06-24 | 重命名 | paper3_K-struvite_polycrystal_MD → paper3 |
+| 2026-06-24 | 重命名 | paper4_MKPC_hydration_MgP_ratio → paper4 |
+| 2026-06-24 | 重命名 | paper5_BO_MPC_electrochemical → paper5 |
+| 2026-06-24 | 重命名 | paper6_MPC_anion_regulation → paper_MPC阴离子调控 |
 
 ## 集群目录命名规范
 ## 集群目录命名规范
