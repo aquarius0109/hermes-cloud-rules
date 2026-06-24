@@ -184,6 +184,7 @@ trajectory.dump           # LAMMPS轨迹
 |------|----------|------|------|--------|------|------|----------|----------|------|
 | 3-1 | 双晶模型 Σ5/Σ13/Random | cluster3 | | | | ✅ | papers/paper3_*/calculation/MD/ | | 已完成 |
 | 3-2 | 多晶模型 8/27/64/125晶粒 | cluster3 | | | | ❌ | papers/paper3_*/calculation/MD/ | | 全部失败 |
+| 3-3 | 本征K-鸟粪石vc-relax(2×1×1) | cluster5 | kshctest | 115871071 | 2026-06-24 | ✅ | papers/paper3_*/calculation/DFT/ | paper3/calculation/DFT/ | PBE+D3, BFGS 38步, E=-2531.0323 Ry, V=909.10Å³,已完成,提取最终结构 |
 
 ---
 
