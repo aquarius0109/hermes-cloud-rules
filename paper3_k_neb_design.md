@@ -181,8 +181,8 @@ papers/paper3_K-struvite_polycrystal_MD/
 │   │   ├── 001_axis/
 │   │   │   └── pristine/
 │   │   │       ├── k_neb_001.inp
-│   │   │       ├── is_relaxed.xyz   (待生成)
-│   │   │       ├── fs_relaxed.xyz   (待生成)
+│   │   │       ├── is_relaxed.xyz   ✅ 阿里云盘 NEB/
+│   │   │       ├── fs001_relaxed.xyz ⏳ FS001仍在跑
 │   │   │       └── submit_c6.slurm
 │   │   ├── 100_axis/
 │   │   │   └── pristine/
