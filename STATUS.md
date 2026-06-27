@@ -4,52 +4,34 @@
 
 ## 实例角色
 
-| 实例 | IP | 角色 | 控制方式 |
-|------|-----|------|----------|
-| 本地WSL (小马) | - | 交互中心，日常任务 | CLI直接操作 |
-| 国内ECS | 119.91.220.249 | 计算中枢 | SSH + 微信 |
-| 海外ECS | (待配置) | 网络出口 | SSH |
+| 实例 | 角色 | 通信方式 |
+|------|------|----------|
+| 本地WSL (小马) | 交互中心，日常任务 | SSH连集群，MCP连海外 |
+| 国内ECS | 计算中枢 | SSH直连 |
+| 海外ECS (海马) | 网络出口，检索/搜索 | MCP飞书 + cnb/GitHub |
 
-## 任务协调协议
+## 通信协议
 
-### 文件结构
-```
-tasks/task_XXX.md          # 任务定义
-results/task_XXX_result.md # 执行结果
-STATUS.md                  # 本文件
-```
+### 我 → 海马/国内
+1. 创建任务文件 `tasks/task_XXX.md`
+2. push到cnb/GitHub
+3. 通知用户："已push，去让XX pull"
+4. 用户在飞书/微信通知对应Hermes pull
+5. 对应Hermes执行后push结果到 `results/task_XXX_result.md`
+6. 用户通知我pull
 
-### 状态字段
-```
-pending_tasks:    等待执行的任务ID列表
-active_task:      当前正在执行的任务ID（由谁执行）
-last_completed:   最后完成的任务ID（由谁完成）
-```
+### 海马/国内 → 我
+1. push结果到cnb/GitHub
+2. 用户通知我pull
 
-### 当前状态
-```
-pending_tasks:    无
-active_task:      无
-last_completed:   无
-```
+## 任务分配
 
-## 任务分配规则
-
-| 任务类型 | 分配给 | 说明 |
-|----------|--------|------|
-| SSH连集群DFT/MD | 本地WSL | 集群密钥在本地 |
-| GitHub/cnb操作 | 本地WSL | 主账号在本地 |
-| 网络请求(Google/海外API) | 海外ECS | 国内网络受限 |
-| 国内网络请求 | 国内ECS | 国内速度快 |
-| 需要GPU的任务 | 国内ECS | 有GPU资源 |
-
-## 工作流程
-
-1. 本地Hermes创建任务 → push到cnb/GitHub
-2. 用户通知对应实例："去仓库检查新任务"
-3. 对应实例 pull → 执行 → 写结果 → push
-4. 用户通知本地Hermes："结果已push"
-5. 本地Hermes pull → 读取结果
+| 任务类型 | 分配给 |
+|----------|--------|
+| SSH连集群DFT/MD | 本地WSL |
+| GitHub/cnb操作 | 本地WSL |
+| 网络请求(Google/海外API) | 海外Hermes |
+| 国内网络请求 | 国内ECS |
 
 ## 连接信息
 
@@ -59,7 +41,8 @@ ssh -i ~/.ssh/hermes_cloud agentuser@119.91.220.249
 ```
 
 ### 本地 → 海外ECS
-（待配置）
+- MCP飞书：`[小马→海马]` 签名发消息
+- cnb/GitHub：push任务等海马pull
 
 ### 仓库地址
 - GitHub: git@github.com:aquarius0109/hermes-cloud-rules.git
